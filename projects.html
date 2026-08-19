@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Lab - Arvexa FutureSkills</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#00dbe7",
+                        "primary-container": "#0d1c32",
+                        "on-error": "#ffffff",
+                        "on-background": "#111c2d",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#111c2d",
+                        "secondary-fixed-dim": "#b3c5ff",
+                        "inverse-primary": "#b9c7e4",
+                        "outline": "#75777e",
+                        "on-primary-fixed": "#0d1c32",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001849",
+                        "on-surface-variant": "#44474d",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#263143",
+                        "surface": "#f9f9ff",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "on-primary-container": "#76849f",
+                        "on-secondary-fixed-variant": "#003fa4",
+                        "surface-variant": "#d8e3fb",
+                        "surface-dim": "#cfdaf2",
+                        "primary": "#000000",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#002022",
+                        "tertiary-fixed": "#74f5ff",
+                        "on-primary-fixed-variant": "#39475f",
+                        "outline-variant": "#c5c6cd",
+                        "on-secondary-container": "#f9f7ff",
+                        "surface-container": "#e7eeff",
+                        "secondary-fixed": "#dae1ff",
+                        "secondary": "#0050cc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00929a",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004f54",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-container-high": "#dee8ff",
+                        "secondary-container": "#0266ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002022",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#515f78",
+                        "surface-bright": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-ambient {
+            box-shadow: 0 8px 24px -4px rgba(13, 28, 50, 0.12);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px -4px rgba(13, 28, 50, 0.16);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(13, 28, 50, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .workflow-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, var(--tw-colors-outline-variant) 0, var(--tw-colors-outline-variant) 4px, transparent 4px, transparent 8px);
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+        .workflow-step:last-child .workflow-line::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary-container/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<div class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed font-black tracking-tight">
+                Arvexa FutureSkills
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Courses</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Career</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Professionals</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Graduates</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1 font-body-md text-body-md" href="#">Project Lab</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:scale-105 transition-transform duration-200 active:scale-95 shadow-ambient hidden md:block">
+                Book Free Counselling
+            </button>
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="text-left">
+<div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full mb-6 font-label-sm text-label-sm border border-secondary/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="science">science</span>
+<span class="font-bold tracking-wider uppercase">Real-World Engineering Lab</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6 tracking-tight leading-tight">
+                        Build Projects That <br/>
+<span class="text-secondary">Prove What You Can Do.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
+                        Stop watching tutorials. Start building end-to-end engineering solutions. Our Project Lab simulates real tech environments, from architecture to deployment.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-md text-label-md hover:scale-105 transition-all duration-200 active:scale-95 shadow-ambient inline-flex items-center gap-2">
+                            Explore Projects
+                            <span class="material-symbols-outlined text-[20px]" data-icon="arrow_downward">arrow_downward</span>
+</button>
+<div class="flex items-center gap-3 px-4 py-2">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-on-surface font-bold text-xs">P1</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-on-surface font-bold text-xs">P2</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-on-surface font-bold text-xs">P3</div>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">50+ Projects Built</span>
+</div>
+</div>
+</div>
+<div class="relative w-full h-[500px] bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 shadow-2xl overflow-hidden flex flex-col p-6 group">
+<!-- Mock Dashboard Header -->
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<div>
+<div class="font-label-md text-primary">Workspace / E-Commerce Pipeline</div>
+<div class="font-label-sm text-on-surface-variant">Deployment Status: <span class="text-green-600">Active</span></div>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+<div class="w-3 h-3 rounded-full bg-green-400"></div>
+</div>
+</div>
+<!-- Mock Dashboard Content -->
+<div class="flex-grow grid grid-cols-3 gap-4">
+<div class="col-span-2 bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 font-mono text-xs text-on-surface-variant overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-8 bg-surface-container flex items-center px-4 border-b border-outline-variant/20">
+<span class="text-primary font-bold">main.py</span>
+</div>
+<div class="pt-8 opacity-80 group-hover:opacity-100 transition-opacity">
+<span class="text-purple-600">import</span> pandas <span class="text-purple-600">as</span> pd<br/>
+<span class="text-purple-600">from</span> sqlalchemy <span class="text-purple-600">import</span> create_engine<br/>
+<br/>
+<span class="text-blue-600">def</span> <span class="text-green-600">process_transactions</span>(data_path):<br/>
+                                  <span class="text-gray-500"># Ingest raw data</span><br/>
+                                  df = pd.read_csv(data_path)<br/>
+                                  <br/>
+                                  <span class="text-gray-500"># Transform: Clean and aggregate</span><br/>
+                                  clean_df = df.dropna().groupby(<span class="text-orange-600">'user_id'</span>).sum()<br/>
+                                  <br/>
+                                  <span class="text-purple-600">return</span> clean_df<br/>
+<br/>
+<span class="text-gray-500"># Initialize DB connection</span><br/>
+                                engine = create_engine(<span class="text-orange-600">'postgresql://user:pass@localhost/db'</span>)
+                            </div>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<div class="flex-1 bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[32px] mb-2" data-icon="database">database</span>
+<div class="font-label-md text-primary">PostgreSQL DB</div>
+<div class="font-label-sm text-green-600">Connected</div>
+</div>
+<div class="flex-1 bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[32px] mb-2" data-icon="cloud_done">cloud_done</span>
+<div class="font-label-md text-primary">AWS S3</div>
+<div class="font-label-sm text-on-surface-variant">Syncing...</div>
+</div>
+</div>
+</div>
+<!-- Floating Elements -->
+<div class="absolute -right-6 bottom-12 glass-panel p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="font-label-md text-primary">Tests Passed</div>
+<div class="font-label-sm text-on-surface-variant">Coverage: 94%</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Projects Matter -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-primary">The Engineering Approach</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4">How we transform learners into independent builders.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface rounded-3xl p-8 border border-outline-variant/20 shadow-sm hover:shadow-ambient transition-all duration-300">
+<div class="w-16 h-16 bg-primary-fixed/30 rounded-2xl flex items-center justify-center text-primary-fixed-dim mb-6">
+<span class="material-symbols-outlined text-[32px]" data-icon="school">school</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Learn the Theory</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Master core concepts, algorithms, and best practices through structured modules before touching the code.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-8 border border-secondary/20 shadow-ambient relative overflow-hidden transform md:-translate-y-4">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-tertiary-fixed-dim"></div>
+<div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-[32px]" data-icon="construction">construction</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Build the Solution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Architect, code, debug, and optimize real applications. Face the same challenges engineers face daily.</p>
+</div>
+<div class="bg-surface rounded-3xl p-8 border border-outline-variant/20 shadow-sm hover:shadow-ambient transition-all duration-300">
+<div class="w-16 h-16 bg-tertiary-fixed/20 rounded-2xl flex items-center justify-center text-on-tertiary-fixed-variant mb-6">
+<span class="material-symbols-outlined text-[32px]" data-icon="present_to_all">present_to_all</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Showcase Proof</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Deploy your work, document it professionally, and build a portfolio that hiring managers can't ignore.</p>
+</div>
+</div>
+</section>
+<!-- Project Showcase -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Featured Projects</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Deep dives into the applications you will build.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm shadow-sm transition-all">All Projects</button>
+<button class="px-5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm border border-outline-variant/30 transition-all">Python</button>
+<button class="px-5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm border border-outline-variant/30 transition-all">AI / ML</button>
+<button class="px-5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm border border-outline-variant/30 transition-all">Data Eng</button>
+<button class="px-5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm border border-outline-variant/30 transition-all">Full Stack</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Detailed Project Card 1 -->
+<div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 shadow-ambient overflow-hidden flex flex-col group">
+<div class="h-48 bg-gradient-to-br from-primary-container to-surface-tint p-8 relative overflow-hidden flex items-center">
+<!-- Abstract BG Elements -->
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/5 blur-xl"></div>
+<div class="absolute -bottom-10 left-10 w-32 h-32 rounded-full bg-secondary/20 blur-xl"></div>
+<div class="relative z-10 w-full">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-white/10 backdrop-blur-sm p-3 rounded-xl inline-block border border-white/20 text-white">
+<span class="material-symbols-outlined text-[32px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="bg-red-500/20 text-red-100 px-3 py-1 rounded-full font-label-sm text-label-sm border border-red-500/30 backdrop-blur-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span> High Difficulty
+                                </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">AI Resume Analyzer</h3>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="error">error</span> The Problem
+                                    </h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">HR teams spend hours manually screening resumes, leading to bias and missed top talent in large applicant pools.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-green-600 mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="build">build</span> What You Build
+                                    </h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">An automated pipeline that ingests PDFs, extracts text via OCR, uses LLMs to score against job descriptions, and outputs a ranked dashboard.</p>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-wider">Core Technologies</h4>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span> Python</span>
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-purple-500"></span> OpenAI API / LLMs</span>
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-teal-500"></span> FastAPI</span>
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-orange-500"></span> React</span>
+</div>
+</div>
+<div class="mb-8">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-wider">Skills Acquired</h4>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">Prompt Engineering</span>
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">API Design</span>
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">Text Extraction (OCR)</span>
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">Data Structuring</span>
+</div>
+</div>
+<button class="w-full mt-auto bg-primary text-on-primary hover:bg-secondary py-4 rounded-xl font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:shadow-lg">
+<span>View Project Blueprint</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Detailed Project Card 2 -->
+<div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 shadow-ambient overflow-hidden flex flex-col group">
+<div class="h-48 bg-gradient-to-br from-tertiary-container to-surface-tint p-8 relative overflow-hidden flex items-center">
+<!-- Abstract BG Elements -->
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/5 blur-xl"></div>
+<div class="absolute -bottom-10 left-10 w-32 h-32 rounded-full bg-tertiary-fixed-dim/20 blur-xl"></div>
+<div class="relative z-10 w-full">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-white/10 backdrop-blur-sm p-3 rounded-xl inline-block border border-white/20 text-white">
+<span class="material-symbols-outlined text-[32px]" data-icon="support_agent">support_agent</span>
+</div>
+<span class="bg-yellow-500/20 text-yellow-100 px-3 py-1 rounded-full font-label-sm text-label-sm border border-yellow-500/30 backdrop-blur-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> Medium Difficulty
+                                </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">Customer Support RAG Agent</h3>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="error">error</span> The Problem
+                                    </h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Customers wait hours for support responses because standard chatbots can't access or understand specific company documentation.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-green-600 mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="build">build</span> What You Build
+                                    </h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">A context-aware AI assistant utilizing Retrieval-Augmented Generation (RAG) to fetch relevant docs from a vector database and synthesize accurate answers.</p>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-wider">Core Technologies</h4>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span> Python</span>
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> LangChain</span>
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500"></span> Pinecone / Vector DB</span>
+<span class="bg-surface-container text-on-surface px-3 py-1.5 rounded-lg font-label-sm text-label-sm border border-outline-variant/20 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-gray-500"></span> Streamlit</span>
+</div>
+</div>
+<div class="mb-8">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant mb-3 uppercase tracking-wider">Skills Acquired</h4>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">RAG Architecture</span>
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">Vector Embeddings</span>
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">Context Window Management</span>
+<span class="text-xs font-medium text-on-surface bg-surface-variant/50 px-2 py-1 rounded">UI Prototyping</span>
+</div>
+</div>
+<button class="w-full mt-auto bg-surface-container text-primary border border-outline-variant/30 hover:bg-surface-container-high py-4 rounded-xl font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:border-primary/50">
+<span>View Project Blueprint</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-20">
+<div class="bg-primary-container text-on-primary-container rounded-[32px] p-12 md:p-16 text-center relative overflow-hidden shadow-ambient">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-tertiary-fixed-dim via-transparent to-transparent"></div>
+<div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg transform -rotate-6">
+<span class="material-symbols-outlined text-[40px]" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-primary mb-6 tracking-tight">Stop Collecting Certificates.<br/>Start Building Proof.</h2>
+<p class="font-body-lg text-body-lg text-inverse-primary mb-10 max-w-2xl mx-auto">Employers hire builders, not certificates. Join our Project Lab cohort and walk away with a portfolio of deployed, industry-grade applications.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-md text-label-md hover:scale-105 transition-transform duration-200 active:scale-95 shadow-[0_0_20px_rgba(2,102,255,0.4)] inline-flex items-center justify-center gap-2">
+                            Apply for Next Cohort
+                            <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-white/10 text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-xl font-label-md text-label-md transition-colors flex items-center justify-center gap-2">
+                            View Full Syllabus
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-20 mt-auto bg-on-background dark:bg-tertiary-container grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<div class="col-span-1 md:col-span-4 mb-8 border-b border-surface-variant/20 pb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-headline-sm font-headline-sm text-surface-container-lowest font-black">
+                Arvexa FutureSkills
+            </div>
+<p class="text-surface-variant/80 font-body-md text-body-md text-center md:text-right">
+                © 2024 Arvexa FutureSkills. Empowering next-gen professionals.
+            </p>
+</div>
+<div class="col-span-1 md:col-span-4 flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors transition-all duration-300 font-body-md text-body-md hover:underline" href="#">About Us</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors transition-all duration-300 font-body-md text-body-md hover:underline" href="#">Courses</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors transition-all duration-300 font-body-md text-body-md hover:underline" href="#">Career Support</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors transition-all duration-300 font-body-md text-body-md hover:underline" href="#">Success Stories</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors transition-all duration-300 font-body-md text-body-md hover:underline" href="#">Privacy Policy</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors transition-all duration-300 font-body-md text-body-md hover:underline" href="#">Terms of Service</a>
+</div>
+</footer>
+</body></html>

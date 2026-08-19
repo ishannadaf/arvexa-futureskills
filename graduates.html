@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arvexa FutureSkills - College to Industry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#00dbe7",
+                        "primary-container": "#0d1c32",
+                        "on-error": "#ffffff",
+                        "on-background": "#111c2d",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#111c2d",
+                        "secondary-fixed-dim": "#b3c5ff",
+                        "inverse-primary": "#b9c7e4",
+                        "outline": "#75777e",
+                        "on-primary-fixed": "#0d1c32",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001849",
+                        "on-surface-variant": "#44474d",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#263143",
+                        "surface": "#f9f9ff",
+                        "surface-container-low": "#f0f3ff",
+                        "background": "#f9f9ff",
+                        "on-primary-container": "#76849f",
+                        "on-secondary-fixed-variant": "#003fa4",
+                        "surface-variant": "#d8e3fb",
+                        "surface-dim": "#cfdaf2",
+                        "primary": "#000000",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#002022",
+                        "tertiary-fixed": "#74f5ff",
+                        "on-primary-fixed-variant": "#39475f",
+                        "outline-variant": "#c5c6cd",
+                        "on-secondary-container": "#f9f7ff",
+                        "surface-container": "#e7eeff",
+                        "secondary-fixed": "#dae1ff",
+                        "secondary": "#0050cc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00929a",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004f54",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-container-high": "#dee8ff",
+                        "secondary-container": "#0266ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002022",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#515f78",
+                        "surface-bright": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "20": "5rem",
+                        "24": "6rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope", "sans-serif"],
+                        "label-md": ["Manrope", "sans-serif"],
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "headline-sm": ["Manrope", "sans-serif"],
+                        "display-lg-mobile": ["Manrope", "sans-serif"],
+                        "label-sm": ["Manrope", "sans-serif"],
+                        "headline-md": ["Manrope", "sans-serif"],
+                        "body-lg": ["Manrope", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .roadmap-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #e7eeff;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .roadmap-line {
+                left: 24px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary-container/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<div class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed font-black tracking-tight">Arvexa FutureSkills</div>
+<div class="hidden md:flex items-center gap-6 font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200 active:scale-95 transition-all" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200 active:scale-95 transition-all" href="#">Courses</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200 active:scale-95 transition-all" href="#">Career</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200 active:scale-95 transition-all" href="#">Professionals</a>
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1 hover:scale-105 transition-transform duration-200 active:scale-95 transition-all" href="#">Graduates</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200 active:scale-95 transition-all" href="#">Projects</a>
+</div>
+<div class="hidden md:block">
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-md hover:scale-[1.02] transition-transform duration-200 shadow-sm">Book Free Counselling</button>
+</div>
+<!-- Mobile Menu Icon (Placeholder) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 lg:py-24 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container/10 text-secondary border border-secondary/20 mb-8 mx-auto">
+<span class="material-symbols-outlined text-sm">school</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">College to Industry Bridge</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary leading-tight max-w-4xl mx-auto mb-6">
+                From Graduate to <span class="text-secondary">Job-Ready Tech Professional</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                You've got the degree. Now get the skills employers actually hire for. Transition from academic theory to real-world impact with our guided roadmap.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-md hover:scale-[1.02] transition-transform shadow-lg shadow-secondary/20 flex items-center justify-center gap-2">
+                    Start Your Roadmap
+                    <span class="material-symbols-outlined text-[20px]">map</span>
+</button>
+<button class="border-2 border-outline-variant text-primary px-8 py-4 rounded-xl font-label-md hover:border-secondary hover:text-secondary transition-colors flex items-center justify-center gap-2 bg-surface">
+                    View Success Stories
+                </button>
+</div>
+<!-- Visual Journey Map -->
+<div class="mt-16 relative max-w-4xl mx-auto hidden md:block">
+<div class="flex items-center justify-between relative z-10">
+<div class="flex flex-col items-center gap-4 bg-surface-container-low p-6 rounded-2xl border border-outline-variant/20 shadow-sm w-48 relative">
+<div class="w-16 h-16 rounded-full bg-surface text-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<div class="font-label-md text-primary">Graduation</div>
+<div class="text-xs text-on-surface-variant">Theory &amp; Exams</div>
+</div>
+<div class="flex-grow flex items-center justify-center px-4">
+<div class="w-full h-2 bg-gradient-to-r from-surface-variant to-secondary-fixed rounded-full relative">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMiIgZmlsbD0iIzAwNTBjYyIvPjwvc3ZnPg==')] opacity-30 animate-[slide_3s_linear_infinite]"></div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 bg-secondary p-6 rounded-2xl shadow-lg w-48 relative transform scale-110">
+<div class="w-16 h-16 rounded-full bg-surface text-secondary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-3xl">work</span>
+</div>
+<div class="font-label-md text-on-secondary">First Job</div>
+<div class="text-xs text-on-secondary/80">Real Projects &amp; Impact</div>
+<div class="absolute -top-3 -right-3 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-2 py-1 rounded-full">YOU ARE HERE</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Skill Gap Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Mind the Gap</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">What you learned vs. what employers actually need.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-outline-variant/20 text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+<h3 class="font-headline-sm text-headline-sm">College</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-error">close</span>
+<span>Passing Exams</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-error">close</span>
+<span>Theoretical Concepts</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-error">close</span>
+<span>Solo Assignments</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-error">close</span>
+<span>Writing code from scratch</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container p-8 rounded-3xl border border-secondary/20 shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -z-10"></div>
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-secondary/20 text-secondary">
+<span class="material-symbols-outlined text-3xl">corporate_fare</span>
+<h3 class="font-headline-sm text-headline-sm font-bold">Industry</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-primary font-body-md font-medium">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Solving Business Problems</span>
+</li>
+<li class="flex items-center gap-3 text-primary font-body-md font-medium">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Practical Application (APIs, DBs)</span>
+</li>
+<li class="flex items-center gap-3 text-primary font-body-md font-medium">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Collaborative Dev (Git, Agile)</span>
+</li>
+<li class="flex items-center gap-3 text-primary font-body-md font-medium">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Reading &amp; maintaining existing code</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Employer Requirements Grid -->
+<section class="bg-surface-container-low py-20 mt-10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">What Employers Expect Day 1</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Master the core toolkit required for any junior tech role.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+<!-- Requirement Cards -->
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="font-label-md text-primary mb-1">Programming Logic</div>
+<div class="text-xs text-on-surface-variant">Clean, efficient code</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div class="font-label-md text-primary mb-1">SQL &amp; Databases</div>
+<div class="text-xs text-on-surface-variant">Querying &amp; modeling</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div class="font-label-md text-primary mb-1">APIs &amp; Integration</div>
+<div class="text-xs text-on-surface-variant">Connecting systems</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<div class="font-label-md text-primary mb-1">Git / Version Control</div>
+<div class="text-xs text-on-surface-variant">Collaborative coding</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">bug_report</span>
+</div>
+<div class="font-label-md text-primary mb-1">Debugging</div>
+<div class="text-xs text-on-surface-variant">Finding &amp; fixing errors</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">cloud</span>
+</div>
+<div class="font-label-md text-primary mb-1">Cloud Basics</div>
+<div class="text-xs text-on-surface-variant">Deployment &amp; hosting</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div class="font-label-md text-primary mb-1">Agile Workflows</div>
+<div class="text-xs text-on-surface-variant">Scrum &amp; sprints</div>
+</div>
+<div class="bg-surface p-6 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div class="font-label-md text-primary mb-1">Communication</div>
+<div class="text-xs text-on-surface-variant">Explaining tech concepts</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The 7-Step Roadmap Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 relative">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Your 7-Step Roadmap to Hired</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Follow a proven path from graduation day to your first day on the job.</p>
+</div>
+<div class="relative max-w-3xl mx-auto">
+<div class="roadmap-line"></div>
+<div class="space-y-12">
+<!-- Step 1 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 text-right pr-12">
+<h4 class="font-headline-sm text-primary mb-2">1. Choose Your Path</h4>
+<p class="text-sm text-on-surface-variant">Decide between Frontend, Backend, Data, or AI based on your strengths.</p>
+</div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-surface border-4 border-secondary-fixed text-secondary font-bold flex items-center justify-center z-10 group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all">1</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div class="md:hidden">
+<h4 class="font-headline-sm text-primary mb-2">1. Choose Your Path</h4>
+<p class="text-sm text-on-surface-variant">Decide between Frontend, Backend, Data, or AI based on your strengths.</p>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 pr-12"></div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-surface border-4 border-secondary-fixed text-secondary font-bold flex items-center justify-center z-10 group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all">2</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div>
+<h4 class="font-headline-sm text-primary mb-2">2. Master the Fundamentals</h4>
+<p class="text-sm text-on-surface-variant">Deep dive into the core language of your chosen path (Python, JS, Java).</p>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 text-right pr-12">
+<h4 class="font-headline-sm text-primary mb-2">3. Learn the Tools (Git &amp; Cloud)</h4>
+<p class="text-sm text-on-surface-variant">Get comfortable with version control and basic cloud deployment.</p>
+</div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-surface border-4 border-secondary-fixed text-secondary font-bold flex items-center justify-center z-10 group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all">3</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div class="md:hidden">
+<h4 class="font-headline-sm text-primary mb-2">3. Learn the Tools (Git &amp; Cloud)</h4>
+<p class="text-sm text-on-surface-variant">Get comfortable with version control and basic cloud deployment.</p>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 pr-12"></div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-surface border-4 border-secondary-fixed text-secondary font-bold flex items-center justify-center z-10 group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all">4</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div>
+<h4 class="font-headline-sm text-primary mb-2">4. Build 3 Core Projects</h4>
+<p class="text-sm text-on-surface-variant">Create real-world applications to prove you can write functional code.</p>
+</div>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 text-right pr-12">
+<h4 class="font-headline-sm text-primary mb-2">5. Optimize Your Resume</h4>
+<p class="text-sm text-on-surface-variant">Highlight projects, skills, and certifications over generic coursework.</p>
+</div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-surface border-4 border-secondary-fixed text-secondary font-bold flex items-center justify-center z-10 group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all">5</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div class="md:hidden">
+<h4 class="font-headline-sm text-primary mb-2">5. Optimize Your Resume</h4>
+<p class="text-sm text-on-surface-variant">Highlight projects, skills, and certifications over generic coursework.</p>
+</div>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 pr-12"></div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-surface border-4 border-secondary-fixed text-secondary font-bold flex items-center justify-center z-10 group-hover:scale-110 group-hover:bg-secondary group-hover:text-on-secondary transition-all">6</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div>
+<h4 class="font-headline-sm text-primary mb-2">6. Mock Interviews</h4>
+<p class="text-sm text-on-surface-variant">Practice technical communication and whiteboard problem solving.</p>
+</div>
+</div>
+</div>
+<!-- Step 7 -->
+<div class="relative flex items-center justify-between md:justify-start group">
+<div class="hidden md:block w-5/12 text-right pr-12">
+<h4 class="font-headline-sm text-primary mb-2">7. Start Applying</h4>
+<p class="text-sm text-on-surface-variant">Target entry-level roles with confidence and a strong portfolio.</p>
+</div>
+<div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-secondary border-4 border-surface shadow-lg text-on-secondary flex items-center justify-center z-10 group-hover:scale-110 transition-all">
+<span class="material-symbols-outlined">flag</span>
+</div>
+<div class="pl-20 md:pl-0 md:w-5/12 md:ml-auto md:text-left md:pl-12">
+<div class="md:hidden">
+<h4 class="font-headline-sm text-primary mb-2">7. Start Applying</h4>
+<p class="text-sm text-on-surface-variant">Target entry-level roles with confidence and a strong portfolio.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Segmented Career Paths Section -->
+<section class="bg-surface-container-low py-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Choose Your Career Path</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Tailored curriculums designed to get you hired in specific tech domains.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Path 1: Python/Backend -->
+<div class="bg-surface rounded-3xl p-8 border border-outline-variant/20 shadow-md">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-secondary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">data_object</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Python &amp; Backend</h3>
+<p class="text-sm text-on-surface-variant mb-8 h-10">Build the engines that power modern web applications.</p>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-xs font-bold text-secondary uppercase mb-1 tracking-wider">Start Here</div>
+<div class="font-label-md text-primary">Python Core &amp; Data Structures</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-xs font-bold text-secondary uppercase mb-1 tracking-wider">Learn Next</div>
+<div class="font-label-md text-primary">Django / FastAPI &amp; SQL</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-xs font-bold text-tertiary-fixed-dim uppercase mb-1 tracking-wider">Build This</div>
+<div class="font-label-md text-primary">REST API for an E-commerce store</div>
+</div>
+</div>
+<button class="w-full mt-8 border border-outline-variant text-primary py-3 rounded-lg font-label-md hover:border-secondary hover:text-secondary transition-colors">View Details</button>
+</div>
+<!-- Path 2: AI & Data -->
+<div class="bg-primary-container rounded-3xl p-8 shadow-xl relative overflow-hidden transform md:-translate-y-4 border border-secondary/30">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-bl-full blur-xl"></div>
+<div class="w-14 h-14 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center mb-6 relative z-10">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<h3 class="font-headline-sm text-surface-container-lowest mb-2 relative z-10">AI &amp; Data Science</h3>
+<p class="text-sm text-surface-variant/80 mb-8 h-10 relative z-10">Train models and extract insights from raw data.</p>
+<div class="space-y-4 relative z-10">
+<div class="p-4 bg-surface-container-lowest/10 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="text-xs font-bold text-secondary-fixed uppercase mb-1 tracking-wider">Start Here</div>
+<div class="font-label-md text-surface-container-lowest">Pandas, NumPy &amp; Stats</div>
+</div>
+<div class="p-4 bg-surface-container-lowest/10 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="text-xs font-bold text-secondary-fixed uppercase mb-1 tracking-wider">Learn Next</div>
+<div class="font-label-md text-surface-container-lowest">Scikit-Learn &amp; ML Algorithms</div>
+</div>
+<div class="p-4 bg-surface-container-lowest/10 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="text-xs font-bold text-tertiary-fixed uppercase mb-1 tracking-wider">Build This</div>
+<div class="font-label-md text-surface-container-lowest">Predictive Customer Churn Model</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-secondary text-on-secondary py-3 rounded-lg font-label-md hover:bg-secondary/90 transition-colors relative z-10 shadow-lg shadow-secondary/20">View Details</button>
+<div class="absolute -top-3 -right-3 bg-error text-on-error text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">POPULAR</div>
+</div>
+<!-- Path 3: Full Stack Web -->
+<div class="bg-surface rounded-3xl p-8 border border-outline-variant/20 shadow-md">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-secondary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">web</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Full Stack Web</h3>
+<p class="text-sm text-on-surface-variant mb-8 h-10">Create responsive, interactive user interfaces.</p>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-xs font-bold text-secondary uppercase mb-1 tracking-wider">Start Here</div>
+<div class="font-label-md text-primary">HTML, CSS, JavaScript ES6+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-xs font-bold text-secondary uppercase mb-1 tracking-wider">Learn Next</div>
+<div class="font-label-md text-primary">React.js &amp; State Management</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-xs font-bold text-tertiary-fixed-dim uppercase mb-1 tracking-wider">Build This</div>
+<div class="font-label-md text-primary">Interactive Dashboard App</div>
+</div>
+</div>
+<button class="w-full mt-8 border border-outline-variant text-primary py-3 rounded-lg font-label-md hover:border-secondary hover:text-secondary transition-colors">View Details</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Build Your Portfolio Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Build Your Portfolio</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Stop putting class assignments on your resume. Build these industry-relevant projects during our program.</p>
+</div>
+<a class="text-secondary font-label-md flex items-center gap-1 hover:underline" href="#">
+                See all projects <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Project 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant text-xs font-bold px-2 py-1 rounded">Intermediate</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">AI Resume Analyzer</h3>
+<p class="text-sm text-on-surface-variant mb-6">A tool that uses NLP to compare a resume against a job description and suggest improvements.</p>
+<div class="border-t border-outline-variant/10 pt-4">
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">Key Learnings</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">Python</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">NLP Libraries</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">API Integration</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant text-xs font-bold px-2 py-1 rounded">Advanced</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Inventory Management API</h3>
+<p class="text-sm text-on-surface-variant mb-6">A robust backend service for tracking stock levels, handling orders, and generating reports.</p>
+<div class="border-t border-outline-variant/10 pt-4">
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">Key Learnings</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">Django/Node</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">PostgreSQL</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">Authentication</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant text-xs font-bold px-2 py-1 rounded">Intermediate</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Sales Data Dashboard</h3>
+<p class="text-sm text-on-surface-variant mb-6">An interactive web dashboard visualizing complex sales datasets with filtering capabilities.</p>
+<div class="border-t border-outline-variant/10 pt-4">
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">Key Learnings</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">React</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">Data Viz (D3/Chart.js)</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">REST APIs</span>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant text-xs font-bold px-2 py-1 rounded">Beginner</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Real-time Chat App</h3>
+<p class="text-sm text-on-surface-variant mb-6">A lightweight communication tool with real-time message updates and user status.</p>
+<div class="border-t border-outline-variant/10 pt-4">
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">Key Learnings</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">WebSockets</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">UI/UX</span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-xs rounded-full">State Management</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Job-Ready Checklist Dashboard -->
+<section class="bg-primary-container py-20 text-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="font-headline-md text-headline-md mb-6 text-surface-container-lowest">The Job-Ready Checklist</h2>
+<p class="font-body-lg text-body-lg text-surface-variant/80 mb-8">This is what our graduates complete before their first interview. We don't just teach code; we prepare you for the hiring process.</p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-lg text-surface-container-lowest mb-1">Technical Fundamentals</h4>
+<p class="text-sm text-surface-variant/70">Proficiency in chosen language, data structures, and basic algorithms.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-lg text-surface-container-lowest mb-1">Portfolio &amp; GitHub</h4>
+<p class="text-sm text-surface-variant/70">3+ polished projects with clean code and comprehensive READMEs.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-lg text-surface-container-lowest mb-1">Resume &amp; LinkedIn</h4>
+<p class="text-sm text-surface-variant/70">ATS-optimized resume and professional online presence.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-variant/20 border border-surface-variant/40 flex items-center justify-center flex-shrink-0 mt-1 text-surface-variant/40">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</div>
+<div>
+<h4 class="font-label-md text-lg text-surface-container-lowest/50 mb-1">Mock Interviews Passed</h4>
+<p class="text-sm text-surface-variant/40">Successful completion of technical and behavioral mock sessions.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Interactive Dashboard Mockup -->
+<div class="bg-surface rounded-2xl p-6 shadow-2xl relative">
+<div class="absolute -top-4 -right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 rounded-lg font-bold text-sm shadow-lg rotate-3 z-10">
+                    Track Your Progress
+                </div>
+<div class="flex items-center justify-between mb-6 border-b border-outline-variant/20 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-bold">JD</div>
+<div>
+<div class="font-label-md text-primary text-sm">John Doe</div>
+<div class="text-xs text-on-surface-variant">Backend Track</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-bold text-secondary">75%</div>
+<div class="text-xs text-on-surface-variant">Job Ready Score</div>
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Python Core</span>
+<span class="text-primary font-bold">100%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Django Projects</span>
+<span class="text-primary font-bold">100%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Resume Review</span>
+<span class="text-primary font-bold">50%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-tertiary-fixed-dim h-2 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Interview Prep</span>
+<span class="text-primary font-bold">0%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-surface-variant h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-surface-container-low text-primary py-3 rounded-lg font-label-md border border-outline-variant/30 flex items-center justify-center gap-2 hover:bg-surface-container transition-colors">
+                    Continue Learning
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 relative">
+<div class="bg-surface-container-high rounded-[2rem] p-10 md:p-16 overflow-hidden relative shadow-lg text-center border border-outline-variant/20">
+<!-- Abstract Background Elements -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary/10 rounded-full blur-[80px]"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 bg-tertiary-fixed/10 rounded-full blur-[60px]"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Graduated. What's Next?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Don't let your degree gather dust. Turn your academic achievement into a thriving tech career with our structured College to Industry bridge.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-md hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center gap-2">
+                        Start Your Application
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="border border-outline-variant text-primary bg-surface px-8 py-4 rounded-xl font-label-md hover:bg-surface-container transition-all">
+                        Talk to an Advisor
+                    </button>
+</div>
+<div class="mt-8 text-sm text-on-surface-variant flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">event_available</span>
+<span>Next cohort starts in 14 days. Limited seats available.</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-tertiary-container w-full py-20 mt-auto grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop font-body-md text-body-md text-surface-container-lowest transition-all duration-300">
+<div class="col-span-1 md:col-span-4 mb-8">
+<div class="text-headline-sm font-headline-sm text-surface-container-lowest font-black mb-2">Arvexa FutureSkills</div>
+<p class="text-surface-variant/80 text-sm max-w-md">Empowering next-gen professionals with cutting-edge tech education and career readiness programs.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-surface-container-lowest opacity-50 uppercase tracking-wider mb-2">Company</h4>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">About Us</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">Careers</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">Success Stories</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-surface-container-lowest opacity-50 uppercase tracking-wider mb-2">Programs</h4>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">Courses</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">Career Support</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">For Graduates</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-surface-container-lowest opacity-50 uppercase tracking-wider mb-2">Legal</h4>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">Privacy Policy</a>
+<a class="text-surface-variant/80 hover:text-surface-container-lowest transition-colors hover:underline" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-surface-container-lowest opacity-50 uppercase tracking-wider mb-2">Connect</h4>
+<div class="flex gap-4 mt-2">
+<a class="w-10 h-10 rounded-full bg-surface/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 mt-12 pt-8 border-t border-surface/10 text-center text-surface-variant/60 text-sm">
+            © 2024 Arvexa FutureSkills. Empowering next-gen professionals.
+        </div>
+</footer>
+</body></html>
